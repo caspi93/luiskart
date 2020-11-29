@@ -1,0 +1,20 @@
+﻿<Window x:Class="Luiskart.Escritorio.Vistas.SeleccionarPersonaje"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Luiskart.Escritorio.Vistas"
+        mc:Ignorable="d"
+        Title="SeleccionarPersonaje" Height="250" Width="430">
+    <Grid Margin="0,0,-8,0">
+        <Label Content="Anime" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="101" Height="32" FontSize="18" FontWeight="Bold"/>
+        <ComboBox x:Name="cbAnimes" HorizontalAlignment="Left" Margin="141,50,0,0" VerticalAlignment="Top" Width="187" Height="25" SelectionChanged="cbAnimes_SelectionChanged"/>
+        <Label Content="Personaje" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="98" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="cbPersonajes" HorizontalAlignment="Left" Margin="141,92,0,0" VerticalAlignment="Top" Width="187" Height="23" IsEnabled="False"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="304,168,0,0" VerticalAlignment="Top" Width="95" FontSize="16" FontWeight="Bold" Height="30" Click="btnGuardar_Click"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="175,168,0,0" VerticalAlignment="Top" Width="102" Height="30" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="btnAgregarAnime" Content="+" HorizontalAlignment="Left" Margin="354,50,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="-0.379,0.454" FontWeight="Bold" FontSize="18" Height="25" Click="btnAgregarAnime_Click"/>
+        <Button x:Name="btnAgregarPersonaje" Content="+" HorizontalAlignment="Left" Margin="354,92,0,0" VerticalAlignment="Top" Width="45" FontWeight="Bold" FontSize="18" Height="23" Click="btnAgregarPersonaje_Click" IsEnabled="False"/>
+
+    </Grid>
+</Window>

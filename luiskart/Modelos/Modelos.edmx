@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LuiskartModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Animes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GeneroId" Type="int" Nullable="false" />
+          <Property Name="FechaEstreno" Type="date" Nullable="false" />
+          <Property Name="Portada" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Dibujos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imagen" Type="varbinary(max)" Nullable="false" />
+          <Property Name="FechaCreacion" Type="date" />
+          <Property Name="fechaIngreso" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Generos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonajeDibujo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="PersonajeId" Type="int" Nullable="false" />
+          <Property Name="DibujoId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personajes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AnimeId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="AniGen">
+          <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
+          <End Role="Animes" Type="Self.Animes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Generos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Animes">
+              <PropertyRef Name="GeneroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PerAni">
+          <End Role="Animes" Type="Self.Animes" Multiplicity="1" />
+          <End Role="Personajes" Type="Self.Personajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personajes">
+              <PropertyRef Name="AnimeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PerDibdib">
+          <End Role="Dibujos" Type="Self.Dibujos" Multiplicity="1" />
+          <End Role="PersonajeDibujo" Type="Self.PersonajeDibujo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dibujos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonajeDibujo">
+              <PropertyRef Name="DibujoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PerDibPer">
+          <End Role="Personajes" Type="Self.Personajes" Multiplicity="1" />
+          <End Role="PersonajeDibujo" Type="Self.PersonajeDibujo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personajes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonajeDibujo">
+              <PropertyRef Name="PersonajeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LuiskartModelStoreContainer">
+          <EntitySet Name="Animes" EntityType="Self.Animes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dibujos" EntityType="Self.Dibujos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Generos" EntityType="Self.Generos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonajeDibujo" EntityType="Self.PersonajeDibujo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personajes" EntityType="Self.Personajes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="AniGen" Association="Self.AniGen">
+            <End Role="Generos" EntitySet="Generos" />
+            <End Role="Animes" EntitySet="Animes" />
+          </AssociationSet>
+          <AssociationSet Name="PerAni" Association="Self.PerAni">
+            <End Role="Animes" EntitySet="Animes" />
+            <End Role="Personajes" EntitySet="Personajes" />
+          </AssociationSet>
+          <AssociationSet Name="PerDibdib" Association="Self.PerDibdib">
+            <End Role="Dibujos" EntitySet="Dibujos" />
+            <End Role="PersonajeDibujo" EntitySet="PersonajeDibujo" />
+          </AssociationSet>
+          <AssociationSet Name="PerDibPer" Association="Self.PerDibPer">
+            <End Role="Personajes" EntitySet="Personajes" />
+            <End Role="PersonajeDibujo" EntitySet="PersonajeDibujo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LuiskartModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Anime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GeneroId" Type="Int32" Nullable="false" />
+          <Property Name="FechaEstreno" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Portada" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Genero" Relationship="Self.AniGen" FromRole="Animes" ToRole="Generos" />
+          <NavigationProperty Name="Personajes" Relationship="Self.PerAni" FromRole="Animes" ToRole="Personajes" />
+        </EntityType>
+        <EntityType Name="Dibujo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="fechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PersonajesDibujos" Relationship="Self.PerDibdib" FromRole="Dibujos" ToRole="PersonajeDibujo" />
+        </EntityType>
+        <EntityType Name="Genero">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Animes" Relationship="Self.AniGen" FromRole="Generos" ToRole="Animes" />
+        </EntityType>
+        <EntityType Name="PersonajeDibujo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="PersonajeId" Type="Int32" Nullable="false" />
+          <Property Name="DibujoId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Dibujo" Relationship="Self.PerDibdib" FromRole="PersonajeDibujo" ToRole="Dibujos" />
+          <NavigationProperty Name="Personaje" Relationship="Self.PerDibPer" FromRole="PersonajeDibujo" ToRole="Personajes" />
+        </EntityType>
+        <EntityType Name="Personaje">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AnimeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Anime" Relationship="Self.PerAni" FromRole="Personajes" ToRole="Animes" />
+          <NavigationProperty Name="PersonajesDibujos" Relationship="Self.PerDibPer" FromRole="Personajes" ToRole="PersonajeDibujo" />
+        </EntityType>
+        <Association Name="AniGen">
+          <End Role="Generos" Type="LuiskartModel.Genero" Multiplicity="1" />
+          <End Role="Animes" Type="LuiskartModel.Anime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Generos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Animes">
+              <PropertyRef Name="GeneroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PerAni">
+          <End Role="Animes" Type="LuiskartModel.Anime" Multiplicity="1" />
+          <End Role="Personajes" Type="LuiskartModel.Personaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personajes">
+              <PropertyRef Name="AnimeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PerDibdib">
+          <End Role="Dibujos" Type="LuiskartModel.Dibujo" Multiplicity="1" />
+          <End Role="PersonajeDibujo" Type="Self.PersonajeDibujo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dibujos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonajeDibujo">
+              <PropertyRef Name="DibujoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PerDibPer">
+          <End Role="Personajes" Type="LuiskartModel.Personaje" Multiplicity="1" />
+          <End Role="PersonajeDibujo" Type="Self.PersonajeDibujo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personajes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonajeDibujo">
+              <PropertyRef Name="PersonajeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entidades" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animes" EntityType="LuiskartModel.Anime" />
+          <EntitySet Name="Dibujos" EntityType="LuiskartModel.Dibujo" />
+          <EntitySet Name="Generos" EntityType="LuiskartModel.Genero" />
+          <EntitySet Name="PersonajeDibujo" EntityType="Self.PersonajeDibujo" />
+          <EntitySet Name="Personajes" EntityType="LuiskartModel.Personaje" />
+          <AssociationSet Name="AniGen" Association="Self.AniGen">
+            <End Role="Generos" EntitySet="Generos" />
+            <End Role="Animes" EntitySet="Animes" />
+          </AssociationSet>
+          <AssociationSet Name="PerAni" Association="Self.PerAni">
+            <End Role="Animes" EntitySet="Animes" />
+            <End Role="Personajes" EntitySet="Personajes" />
+          </AssociationSet>
+          <AssociationSet Name="PerDibdib" Association="Self.PerDibdib">
+            <End Role="Dibujos" EntitySet="Dibujos" />
+            <End Role="PersonajeDibujo" EntitySet="PersonajeDibujo" />
+          </AssociationSet>
+          <AssociationSet Name="PerDibPer" Association="Self.PerDibPer">
+            <End Role="Personajes" EntitySet="Personajes" />
+            <End Role="PersonajeDibujo" EntitySet="PersonajeDibujo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LuiskartModelStoreContainer" CdmEntityContainer="Entidades">
+          <EntitySetMapping Name="Animes">
+            <EntityTypeMapping TypeName="LuiskartModel.Anime">
+              <MappingFragment StoreEntitySet="Animes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="GeneroId" ColumnName="GeneroId" />
+                <ScalarProperty Name="FechaEstreno" ColumnName="FechaEstreno" />
+                <ScalarProperty Name="Portada" ColumnName="Portada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dibujos">
+            <EntityTypeMapping TypeName="LuiskartModel.Dibujo">
+              <MappingFragment StoreEntitySet="Dibujos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Generos">
+            <EntityTypeMapping TypeName="LuiskartModel.Genero">
+              <MappingFragment StoreEntitySet="Generos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonajeDibujo">
+            <EntityTypeMapping TypeName="LuiskartModel.PersonajeDibujo">
+              <MappingFragment StoreEntitySet="PersonajeDibujo">
+                <ScalarProperty Name="PersonajeId" ColumnName="PersonajeId" />
+                <ScalarProperty Name="DibujoId" ColumnName="DibujoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personajes">
+            <EntityTypeMapping TypeName="LuiskartModel.Personaje">
+              <MappingFragment StoreEntitySet="Personajes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="AnimeId" ColumnName="AnimeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

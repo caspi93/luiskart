@@ -1,0 +1,16 @@
+﻿<Window x:Class="Luiskart.Escritorio.Vistas.VerAnime"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Luiskart.Escritorio.Vistas"
+        mc:Ignorable="d"
+        Title="Ver Anime" Height="659.498" Width="700.662">
+    <Grid Margin="0,0,2,15">
+        <Image x:Name="imgPortada" HorizontalAlignment="Left" Height="496" Margin="10,22,0,0" VerticalAlignment="Top" Width="372"/>
+        <Label x:Name="lblNombreAnime" Content="Inuyasha" Height="72" Margin="10,538,0,-15" VerticalAlignment="Top" Width="372" FontFamily="Viner Hand ITC" FontWeight="Bold" FontSize="24" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblFechaEstreno" Content="" HorizontalAlignment="Left" Margin="404,22,0,0" VerticalAlignment="Top" Width="285" Height="40"/>
+        <Label x:Name="lblGenero" Content="" HorizontalAlignment="Left" Margin="404,67,0,0" VerticalAlignment="Top" Width="285" Height="45"/>
+        <ListBox x:Name="listPersonajes" HorizontalAlignment="Left" Height="369" Margin="404,149,0,0" VerticalAlignment="Top" Width="264" MouseDoubleClick="listPersonajes_MouseDoubleClick"/>
+    </Grid>
+</Window>

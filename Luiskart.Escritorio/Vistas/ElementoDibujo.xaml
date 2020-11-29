@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Luiskart.Escritorio.Vistas.ElementoDibujo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Luiskart.Escritorio.Vistas"
+             mc:Ignorable="d" d:DesignWidth="800" Height="188.873" Margin="0" BorderBrush="Black" BorderThickness="1" MouseDoubleClick="UserControl_MouseDoubleClick">
+    <Grid Margin="0,0,0,10">
+        <Image x:Name="imgDibujo" HorizontalAlignment="Left" Height="159" Margin="10,10,0,0" VerticalAlignment="Top" Width="159"/>
+        <Label Content="Fecha de Creación" Margin="174,17,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="180"/>
+        <Label x:Name="lblFechaCreacion" Content="10/10/2010" Margin="174,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="180"/>
+        <Label Content="Fecha de Ingreso" HorizontalAlignment="Left" Margin="360,17,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label x:Name="lblFechaIngreso" Content="11/11/2011" HorizontalAlignment="Left" Margin="360,48,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Personajes" Margin="174,105,0,0" RenderTransformOrigin="1.259,0.447" Width="602" FontStyle="Italic" FontFamily="Times New Roman" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="lblContPersonajes" Content="Goku" HorizontalAlignment="Left" Margin="174,136,0,0" VerticalAlignment="Top" Width="602"/>
+
+
+    </Grid>
+</UserControl>

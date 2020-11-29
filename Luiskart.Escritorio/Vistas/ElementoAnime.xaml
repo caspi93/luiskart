@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Luiskart.Escritorio.Vistas.ElementoAnime"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Luiskart.Escritorio.Vistas"
+             mc:Ignorable="d" d:DesignWidth="800" Height="188.873" Margin="0" BorderBrush="Black" BorderThickness="1" MouseDoubleClick="UserControl_MouseDoubleClick">
+    <Grid Margin="0,0,0,10">
+        <Image x:Name="imgPortada" HorizontalAlignment="Left" Height="159" Margin="10,10,0,0" VerticalAlignment="Top" Width="159"/>
+        <Label x:Name="lblFechaEstreno" Content="10/10/2010" Margin="174,55,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="286"/>
+        <Label x:Name="lblNombre" Content="Nombre del Anime" HorizontalAlignment="Left" Margin="184,6,0,0" VerticalAlignment="Top" Width="592" FontWeight="Bold" FontSize="24" FontFamily="Viner Hand ITC" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblGenero" Content="11/11/2011" HorizontalAlignment="Left" Margin="465,55,0,0" VerticalAlignment="Top" Width="311"/>
+        <Label x:Name="lblContPersonajes" Content="Goku" HorizontalAlignment="Left" Margin="174,136,0,0" VerticalAlignment="Top" Width="602"/>
+
+
+    </Grid>
+</UserControl>
