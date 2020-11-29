@@ -1,6 +1,6 @@
-﻿using luiskart.DataAcces;
-using luiskart.Modelos;
-using Luiskart.Escritorio.Vistas;
+﻿using Luiskart.Compartido.DataAcces;
+using Luiskart.Compartido.Modelos;
+using  Luiskart.Escritorio.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,15 +16,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Luiskart.Escritorio {
+namespace  Luiskart.Escritorio {
     /// <summary>
     /// Lógica de interacción para VerAnimes.xaml
     /// </summary>
     public partial class VerAnimes : Window {
         private AnimeDao animeDao;
-        private Entidades db;
+        private LuiskartEntities db;
 
-        public VerAnimes(Entidades db) {
+        public VerAnimes(LuiskartEntities db) {
             InitializeComponent();
 
             this.db = db;

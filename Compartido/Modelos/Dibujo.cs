@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace luiskart.Modelos
+namespace Luiskart.Compartido.Modelos
 {
     using System;
     using System.Collections.Generic;

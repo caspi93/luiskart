@@ -1,4 +1,4 @@
-﻿using luiskart.Modelos;
+﻿using Luiskart.Compartido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,14 +15,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Luiskart.Escritorio.Vistas {
+namespace  Luiskart.Escritorio.Vistas {
     /// <summary>
     /// Lógica de interacción para VerDibujo.xaml
     /// </summary>
     public partial class VerDibujo : Window {
         private Dibujo dibujo;
-        private Entidades db;
-        public VerDibujo(Entidades db, Dibujo dibujo) {
+        private LuiskartEntities db;
+        public VerDibujo(LuiskartEntities db, Dibujo dibujo) {
             InitializeComponent();
             this.db = db;
             this.dibujo = dibujo;

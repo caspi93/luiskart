@@ -1,4 +1,4 @@
-﻿using luiskart.Modelos;
+﻿using Luiskart.Compartido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure.MappingViews;
@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace luiskart.DataAcces {
+namespace Luiskart.Compartido.DataAcces {
     public class DibujoDao {
 
-        private Entidades db;
+        private LuiskartEntities db;
 
-        public DibujoDao(Entidades db) {
+        public DibujoDao(LuiskartEntities db) {
             this.db = db;
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace luiskart.Modelos {
+namespace Luiskart.Compartido.Modelos {
     public partial class Personaje {
 
         public override string ToString() {

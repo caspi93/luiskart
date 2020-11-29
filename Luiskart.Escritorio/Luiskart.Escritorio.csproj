@@ -177,9 +177,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\luiskart\luiskart.csproj">
-      <Project>{15BB4D32-338F-4CAB-A68C-BE0C19FC457B}</Project>
-      <Name>luiskart</Name>
+    <ProjectReference Include="..\Compartido\Luiskart.Compartido.csproj">
+      <Project>{69ff7b02-9546-4eeb-89e2-928005bac7db}</Project>
+      <Name>Luiskart.Compartido</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

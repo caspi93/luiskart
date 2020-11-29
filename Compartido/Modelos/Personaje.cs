@@ -7,27 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace luiskart.Modelos
+namespace Luiskart.Compartido.Modelos
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Anime
+    public partial class Personaje
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Anime()
+        public Personaje()
         {
-            this.Personajes = new HashSet<Personaje>();
+            this.PersonajesDibujos = new HashSet<PersonajeDibujo>();
         }
     
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public int GeneroId { get; set; }
-        public System.DateTime FechaEstreno { get; set; }
-        public byte[] Portada { get; set; }
+        public int AnimeId { get; set; }
     
-        public virtual Genero Genero { get; set; }
+        public virtual Anime Anime { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Personaje> Personajes { get; set; }
+        public virtual ICollection<PersonajeDibujo> PersonajesDibujos { get; set; }
     }
 }

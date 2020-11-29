@@ -1,5 +1,5 @@
-﻿using luiskart.DataAcces;
-using luiskart.Modelos;
+﻿using Luiskart.Compartido.DataAcces;
+using Luiskart.Compartido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +22,9 @@ namespace Luiskart.Escritorio.Vistas {
     /// Lógica de interacción para AgregarAnime.xaml
     /// </summary>
     public partial class AgregarAnime : Window {
-        private Entidades db;
+        private LuiskartEntities db;
         private string nombrePortada;
-        public AgregarAnime(Entidades db) {
+        public AgregarAnime(LuiskartEntities db) {
             InitializeComponent();
 
             this.db = db;

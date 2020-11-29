@@ -1,6 +1,6 @@
-﻿using luiskart.DataAcces;
-using luiskart.Modelos;
-using Luiskart.Escritorio.Vistas;
+﻿using Luiskart.Compartido.DataAcces;
+using Luiskart.Compartido.Modelos;
+using  Luiskart.Escritorio.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +16,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Luiskart.Escritorio {
+namespace  Luiskart.Escritorio {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
         private DibujoDao dibujoDao;
-        private Entidades db;
+        private LuiskartEntities db;
         public MainWindow() {
             InitializeComponent();
 
-            db = new Entidades();
+            db = new LuiskartEntities();
 
             dibujoDao = new DibujoDao(db);
             var listaDibujos = dibujoDao.GetDibujos();

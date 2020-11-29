@@ -7,11 +7,11 @@ using System.Windows;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Luiskart.Escritorio")]
+[assembly: AssemblyTitle(" Luiskart.Escritorio")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Luiskart.Escritorio")]
+[assembly: AssemblyProduct(" Luiskart.Escritorio")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

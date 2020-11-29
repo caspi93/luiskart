@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace luiskart.Modelos
+namespace Luiskart.Compartido.Modelos
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entidades : DbContext
+    public partial class LuiskartEntities : DbContext
     {
-        public Entidades()
-            : base("name=Entidades")
+        public LuiskartEntities()
+            : base("name=LuiskartEntities")
         {
         }
     

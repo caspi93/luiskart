@@ -1,4 +1,4 @@
-﻿using luiskart.Modelos;
+﻿using Luiskart.Compartido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,15 +15,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Luiskart.Escritorio.Vistas {
+namespace  Luiskart.Escritorio.Vistas {
     /// <summary>
     /// Lógica de interacción para ElementoAnime.xaml
     /// </summary>
     public partial class ElementoAnime : UserControl {
-        private Entidades db;
+        private LuiskartEntities db;
         private Anime anime;
 
-        public ElementoAnime(Entidades db, Anime anime) {
+        public ElementoAnime(LuiskartEntities db, Anime anime) {
             InitializeComponent();
 
             this.db = db;

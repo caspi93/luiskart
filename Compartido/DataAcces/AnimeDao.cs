@@ -1,16 +1,16 @@
-﻿using luiskart.Modelos;
+﻿using Luiskart.Compartido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace luiskart.DataAcces {
+namespace Luiskart.Compartido.DataAcces {
     public class AnimeDao {
 
-        private Entidades db;
+        private LuiskartEntities db;
 
-        public AnimeDao(Entidades db) {
+        public AnimeDao(LuiskartEntities db) {
             this.db = db;
         }
 

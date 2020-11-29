@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace luiskart.Modelos {
+namespace Luiskart.Compartido.Modelos {
     public partial class Anime{
 
         public override string ToString() {

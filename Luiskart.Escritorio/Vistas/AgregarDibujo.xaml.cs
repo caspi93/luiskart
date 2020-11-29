@@ -1,5 +1,5 @@
-﻿using luiskart.DataAcces;
-using luiskart.Modelos;
+﻿using Luiskart.Compartido.DataAcces;
+using Luiskart.Compartido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,17 +16,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Luiskart.Escritorio.Vistas {
+namespace  Luiskart.Escritorio.Vistas {
     /// <summary>
     /// Lógica de interacción para AgregarDibujo.xaml
     /// </summary>
     public partial class AgregarDibujo : Window {
         private string nombreDibujo;
-        private Entidades db;
+        private LuiskartEntities db;
         private PersonajeDao personajeDao;
         private List<Personaje> personajes;
         private Func<Dibujo, bool> callbackGuardar;
-        public AgregarDibujo(Entidades db, Func<Dibujo, bool> callbackGuardar) {
+        public AgregarDibujo(LuiskartEntities db, Func<Dibujo, bool> callbackGuardar) {
             InitializeComponent();
             this.callbackGuardar = callbackGuardar;
             this.db = db;

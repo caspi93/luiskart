@@ -1,5 +1,5 @@
-﻿using luiskart.DataAcces;
-using luiskart.Modelos;
+﻿using Luiskart.Compartido.DataAcces;
+using Luiskart.Compartido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +14,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Luiskart.Escritorio.Vistas {
+namespace  Luiskart.Escritorio.Vistas {
     /// <summary>
     /// Lógica de interacción para SeleccionarPersonaje.xaml
     /// </summary>
     public partial class SeleccionarPersonaje : Window {
-        private Entidades db;
+        private LuiskartEntities db;
         private Func<Personaje, bool> callbackGuardar;
         private List<Anime> animes;
         private Anime anime = null;
-        public SeleccionarPersonaje(Entidades db, Func<Personaje, bool> callbackGuardar) {
+        public SeleccionarPersonaje(LuiskartEntities db, Func<Personaje, bool> callbackGuardar) {
             InitializeComponent();
             this.callbackGuardar = callbackGuardar;
 
