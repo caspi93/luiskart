@@ -19,6 +19,10 @@ namespace Luiskart.Compartido.DataAcces {
             return db.Dibujos.ToList();
         }
 
+        public List<Dibujo> GetDibujosConPersonajes() {
+            return db.Dibujos.Include("PersonajesDibujos.Personaje.Anime").ToList();
+        }
+
         public Dibujo GetDibujo(int id) {
             var consulta = from d in db.Dibujos where d.Id == id select d;
 

@@ -1,0 +1,103 @@
+{
+  "dibujos": [
+    {
+      "Personajes": [
+        {
+          "Nombre": "Sesshomaru",
+          "Anime": {
+            "Nombre": "Inuyasha"
+          }
+        },
+        {
+          "Nombre": "Inuyasha",
+          "Anime": {
+            "Nombre": "Inuyasha"
+          }
+        },
+        {
+          "Nombre": "Kagome",
+          "Anime": {
+            "Nombre": "Inuyasha"
+          }
+        }
+      ],
+      "FechaCreacion": "10/10/2018",
+      "FechaIngreso": "10/10/2018"
+    },
+
+    {
+      "Personajes": [
+        {
+          "Nombre": "Sesshomaru",
+          "Anime": {
+            "Nombre": "Inuyasha"
+          }
+        },
+        {
+          "Nombre": "Inuyasha",
+          "anime": {
+            "Nombre": "Inuyasha"
+          }
+        },
+        {
+          "Nombre": "Kagome",
+          "Anime": {
+            "Nombre": "Inuyasha"
+          }
+        }
+      ],
+      "FechaCreacion": "10/10/2018",
+      "FechaIngreso": "10/10/2018"
+    },
+
+    {
+      "Personajes": [
+        {
+          "Nombre": "Goku",
+          "Anime": {
+            "Nombre": "Dragon ball Z"
+          }
+        },
+        {
+          "Nombre": "Gohan",
+          "Anime": {
+            "Nombre": "Dragon ball Z"
+          }
+        },
+        {
+          "Nombre": "Vegueta",
+          "Anime": {
+            "Nombre": "Dragon ball Z"
+          }
+        }
+      ],
+      "FechaCreacion": "10/10/2018",
+      "FechaIngreso": "10/10/2018"
+    },
+    {
+      "Personajes": [
+        {
+          "Nombre": "Meliodas",
+          "Anime": {
+            "Nombre": "Los siete pecados capitales"
+          }
+        },
+        {
+          "Nombre": "Elisabeth",
+          "Anime": {
+            "Nombre": "Los siete pecados capitales"
+          }
+        },
+        {
+          "Nombre": "Nami",
+          "Anime": {
+            "Nombre": "One Piece"
+          }
+        }
+      ],
+      "FechaCreacion": "10/10/2018",
+      "FechaIngreso": "10/10/2018"
+    }
+  ]
+
+}

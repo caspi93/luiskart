@@ -1,0 +1,7 @@
+﻿.MasterDibujo .seccion-master {
+    height: 790px;
+}
+
+#lista-dibujos {
+    overflow-y: scroll;
+}

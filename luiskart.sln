@@ -10,6 +10,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luiskart.Escritorio", "Luis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luiskart.Compartido", "Compartido\Luiskart.Compartido.csproj", "{69FF7B02-9546-4EEB-89E2-928005BAC7DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luiskart.Backend", "Luiskart.Backend\Luiskart.Backend.csproj", "{4AE7D2DB-AB92-4556-9028-62385A351800}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "frontend", "frontend\", "{1CEE5403-71F9-4195-858B-77E942501AAF}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54973"
+		Debug.AspNetCompiler.PhysicalPath = "frontend\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54973\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54973"
+		Release.AspNetCompiler.PhysicalPath = "frontend\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54973\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54973"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +46,14 @@ Global
 		{69FF7B02-9546-4EEB-89E2-928005BAC7DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69FF7B02-9546-4EEB-89E2-928005BAC7DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69FF7B02-9546-4EEB-89E2-928005BAC7DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE7D2DB-AB92-4556-9028-62385A351800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE7D2DB-AB92-4556-9028-62385A351800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE7D2DB-AB92-4556-9028-62385A351800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE7D2DB-AB92-4556-9028-62385A351800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CEE5403-71F9-4195-858B-77E942501AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CEE5403-71F9-4195-858B-77E942501AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CEE5403-71F9-4195-858B-77E942501AAF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CEE5403-71F9-4195-858B-77E942501AAF}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="452a05b2e37245de8f7775bd64eec52c" Name="Diagram1">
         <EntityTypeShape EntityType="LuiskartModel.Anime" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LuiskartModel.Dibujo" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LuiskartModel.Dibujo" Width="1.5" PointX="5.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LuiskartModel.Genero" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="LuiskartModel.PersonajeDibujo" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LuiskartModel.Personaje" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
