@@ -16,6 +16,7 @@ namespace Luiskart.Compartido.Modelos_2 {
             FechaEstreno = anime.FechaEstreno;
             Portada = anime.Portada;
             Genero = new Genero(anime.Genero);
+            Personajes = anime.Personajes.Select(p => new Personaje(p)).ToList();           
         }
 
         public int Id { get; set; }
@@ -27,6 +28,8 @@ namespace Luiskart.Compartido.Modelos_2 {
         public byte[] Portada { get; set; }
 
         public Genero Genero { get; set; }
+
+        public List<Personaje> Personajes { get; set; }
 
         public Modelos.Anime Convetir() {
             return new Modelos.Anime {

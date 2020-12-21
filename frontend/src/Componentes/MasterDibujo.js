@@ -11,7 +11,6 @@ class MasterDibujo extends Component {
         this.state = {
             dibujoSeleccionado: null
         }
-        console.log("Lo que sea");
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -40,7 +39,6 @@ class MasterDibujo extends Component {
         let detalleDibujo;
         if (this.state.dibujoSeleccionado != null) {
             detalleDibujo = <DetalleDibujo dibujo={this.state.dibujoSeleccionado} />;
-            console.log("Render Master Dibujo", this.state.dibujoSeleccionado.Id);
         } else {
             detalleDibujo = <div></div>
         }
