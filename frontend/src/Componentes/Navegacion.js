@@ -3,6 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Navegacion extends Component {
     render() {
+        const vista = this.props.vista;
+        const vistaDibujo = "master_dibujo";
+        const vistaAnime = "master_anime";
+
+        const claseItem = "nav-link";
+        const claseItemActivo = "nav-link active";
+        const claseDibujo = vista == vistaDibujo ? claseItemActivo : claseItem;
+        const claseAnime = vista == vistaAnime ? claseItemActivo : claseItem;
+
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand" href="#">Luiskart93</a>
@@ -11,8 +20,8 @@ class Navegacion extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item"><a href="" className="text-white nav-link">Dibujos</a></li>
-                        <li className="nav-item"><a href="" className="text-white nav-link">Animes</a></li>
+                        <li className="nav-item"><a onClick={() => this.props.onClickVista(vistaDibujo)} href="#" className={claseDibujo}>Dibujos</a></li>
+                        <li className="nav-item"><a onClick={() => this.props.onClickVista(vistaAnime)} href="#" className={claseAnime}>Animes</a></li>
                     </ul>
                     <form className="form-inline">
                         <input className="form-control mr-sm-2" type="search" placeholder="Buscar dibujos o animes" aria-label="Search" />

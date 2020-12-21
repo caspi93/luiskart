@@ -16,6 +16,7 @@ class ElementoAnime extends Component {
         } else {
             primerPersonaje = "--";
         }
+
         return (
             <div onClick={() => this.props.onClick(anime)}>
                 <div className="card mb-1">

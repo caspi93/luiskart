@@ -13,20 +13,22 @@ library.add(fas);
 class App extends Component {
     constructor() {
         super();
+        this.handleClickNav = this.handleClickNav.bind(this);
         this.state = {
+            vistaSeleccionada: "master_dibujo",
             dibujos: [],
             animes:[]
         }
     }
 
     componentDidMount() {
-        {/*fetch('https://localhost:44391/api/dibujos/')
+        fetch('https://localhost:44391/api/dibujos/')
             .then((response) => {
                 return response.json()
             })
             .then((dibujos) => {
                 this.setState({ dibujos: dibujos })
-            })*/}
+            })
 
         fetch('https://localhost:44391/api/animes/').
             then((response) => {
@@ -37,12 +39,24 @@ class App extends Component {
             })
     }
 
+    handleClickNav(vista) {
+        this.setState({
+            vistaSeleccionada: vista
+        });
+    }
+
     render() {
+        let vista;
+        if (this.state.vistaSeleccionada == "master_dibujo") {
+            vista = <MasterDibujo dibujos={this.state.dibujos} />
+        } else {
+            vista = <MasterAnime animes={this.state.animes} />
+        }
+
         return (
             <div className="App">
-                <Navegacion />
-                {/*<MasterDibujo dibujos={this.state.dibujos} /> */}
-                <MasterAnime animes={this.state.animes} />
+                <Navegacion vista={this.state.vistaSeleccionada} onClickVista={this.handleClickNav} /> 
+                {vista}
                 <Footer />
             </div>
         );
