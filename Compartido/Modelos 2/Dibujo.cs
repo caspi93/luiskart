@@ -14,7 +14,7 @@ namespace Luiskart.Compartido.Modelos_2 {
             Imagen = dibujo.Imagen;
             FechaCreacion = dibujo.FechaCreacion;
             FechaIngreso = dibujo.fechaIngreso;
-            Personajes = dibujo.Personajes.Select(p => new Personaje(p)).ToList();
+            Personajes = dibujo.Personajes.Select(p => new Personaje(p) { Anime = new Anime2(p.Anime) }).ToList();
         }
         public int Id { get; set; }
         public byte[] Imagen { get; set; }

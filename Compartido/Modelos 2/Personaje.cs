@@ -11,7 +11,6 @@ namespace Luiskart.Compartido.Modelos_2 {
             Id = personaje.Id;
             Nombre = personaje.Nombre;
             AnimeId = personaje.AnimeId;
-            Anime = new Anime(personaje.Anime);
         }
 
         public int Id { get; set; }
@@ -19,7 +18,7 @@ namespace Luiskart.Compartido.Modelos_2 {
 
         public int AnimeId { get; set; }
 
-        public Anime Anime { get; set; }
+        public Anime2 Anime { get; set; }
 
         public Modelos.Personaje Convertir() {
             return new Modelos.Personaje {

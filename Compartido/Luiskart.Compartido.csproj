@@ -60,7 +60,7 @@
     <Compile Include="DataAcces\DibujoDao.cs" />
     <Compile Include="DataAcces\GeneroDao.cs" />
     <Compile Include="DataAcces\PersonajeDao.cs" />
-    <Compile Include="Modelos 2\Anime.cs" />
+    <Compile Include="Modelos 2\Anime2.cs" />
     <Compile Include="Modelos 2\Dibujo.cs" />
     <Compile Include="Modelos 2\Genero.cs" />
     <Compile Include="Modelos 2\Personaje.cs" />

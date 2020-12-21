@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Luiskart.Compartido.Modelos_2 {
-   public  class Anime {
+   public  class Anime2 {
 
-        public Anime() { }
+        public Anime2() { }
 
-        public Anime(Modelos.Anime anime) {
+        public Anime2(Modelos.Anime anime) {
             Id = anime.Id;
             Nombre = anime.Nombre;
             GeneroId = anime.GeneroId;
