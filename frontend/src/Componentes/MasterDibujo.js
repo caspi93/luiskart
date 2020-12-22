@@ -3,6 +3,7 @@ import './MasterDibujo.css';
 import BarraTitulo from './BarraTitulo';
 import ElementoDibujo from './ElementoDibujo';
 import DetalleDibujo from './DetalleDibujo';
+import AgregarDibujo from './AgregarDibujo';
 
 class MasterDibujo extends Component {
     constructor(props) {
@@ -25,12 +26,8 @@ class MasterDibujo extends Component {
     }
 
     handleClick(dibujo) {
-        console.log("la id del dibujo seleccionado es: ", dibujo);
-        console.log("El this es: ", this);
         this.setState({
             dibujoSeleccionado: dibujo
-        }, () => {
-            console.log("EL NUEVO ESTADO ES: ", this.state);
         });
     }
 
@@ -56,7 +53,8 @@ class MasterDibujo extends Component {
                             </div>
                         </div>
                         <div className="col col-md-8 seccion-master" >
-                            {detalleDibujo}
+                            {/*detalleDibujo*/}
+                            <AgregarDibujo />
                         </div>
                     </div>
                 </div>
