@@ -62,11 +62,12 @@ class MasterDibujo extends Component {
         } else {
             const puedeIrAtras = this.state.dibujoSeleccionado != null;
             vista = <AgregarDibujo animes={this.props.animes} onClickAtras={this.onClickAtras} puedeIrAtras={puedeIrAtras} />
+
         }
 
         return (
             <div className="MasterDibujo bg-light">
-                <BarraTitulo titulo="Dibujos" onClickNuevo={this.onClickNuevo} />
+                <BarraTitulo titulo="Dibujos" onClickNuevo={this.onClickNuevo} oculto={this.state.vistaSeleccionada == "agregar_dibujo"} />
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col col-md-4 seccion-master" id="lista-dibujos">
