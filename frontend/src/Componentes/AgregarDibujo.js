@@ -86,7 +86,7 @@ class AgregarDibujo extends Component {
                         </div>
                     </div>
                 </div>
-                <SeleccionarPersonaje show={this.state.showModalSelecPersonaje} onClickCerrar={this.onClickCerrarSelecPersonaje} />
+                <SeleccionarPersonaje animes={this.props.animes} show={this.state.showModalSelecPersonaje} onClickCerrar={this.onClickCerrarSelecPersonaje} />
             </div>
         )
     }

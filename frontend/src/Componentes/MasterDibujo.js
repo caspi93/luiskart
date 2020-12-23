@@ -54,7 +54,7 @@ class MasterDibujo extends Component {
                         </div>
                         <div className="col col-md-8 seccion-master" >
                             {/*detalleDibujo*/}
-                            <AgregarDibujo />
+                            <AgregarDibujo animes={this.props.animes} />
                         </div>
                     </div>
                 </div>

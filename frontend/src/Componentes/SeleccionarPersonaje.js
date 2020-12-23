@@ -9,6 +9,7 @@ class SeleccionarPersonaje extends Component {
     }
 
     render() {
+        const animes = this.props.animes.map((anime, i) => { return <option value={anime.Id}>{ anime.Nombre}</option> });
         return (
             <Modal show={this.props.show} onHide={this.props.onClickCerrar}>
                 <Modal.Header closeButton>
@@ -19,11 +20,7 @@ class SeleccionarPersonaje extends Component {
                         <Form.Group controlId="exampleForm.SelectCustom">
                             <Form.Label>Seleccione un anime</Form.Label>
                             <Form.Control as="select" custom>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {animes}                             
                             </Form.Control>
                         </Form.Group>
                         <Form.Group controlId="exampleForm.SelectCustom">

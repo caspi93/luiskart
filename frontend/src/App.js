@@ -48,7 +48,7 @@ class App extends Component {
     render() {
         let vista;
         if (this.state.vistaSeleccionada == "master_dibujo") {
-            vista = <MasterDibujo dibujos={this.state.dibujos} />
+            vista = <MasterDibujo dibujos={this.state.dibujos} animes={this.state.animes} />
         } else {
             vista = <MasterAnime animes={this.state.animes} />
         }
