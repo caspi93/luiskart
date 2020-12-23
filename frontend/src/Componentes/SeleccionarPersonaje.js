@@ -6,41 +6,70 @@ import Form from 'react-bootstrap/Form';
 class SeleccionarPersonaje extends Component {
     constructor(props) {
         super(props);
+        this.onChangeAnime = this.onChangeAnime.bind(this);
+        this.state = {
+            animeSeleccionado: null
+        }
+    }
+
+    onChangeAnime(evento) {
+        const posicion = evento.target.value;
+        const anime = this.props.animes[posicion];
+        console.log("Anime: ", anime);
+        this.setState({
+            animeSeleccionado: anime
+        })
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        let animeSeleccionado = state.animeSeleccionado;
+        if (animeSeleccionado == null && props.animes.length > 0) {
+            animeSeleccionado = props.animes[0];
+        }
+
+        return {
+            animeSeleccionado
+        }
     }
 
     render() {
-        const animes = this.props.animes.map((anime, i) => { return <option value={anime.Id}>{ anime.Nombre}</option> });
+        const animes = this.props.animes.map((anime, i) => { return <option value={i}>{anime.Nombre}</option> });
+        let personajes;
+        if (this.state.animeSeleccionado != null) {
+            personajes = this.state.animeSeleccionado.Personajes.map((personaje, i) => {
+                return <option value={personaje.Id}>{personaje.Nombre}</option>
+            });
+        } else {
+            personajes = []
+        }
+
         return (
             <Modal show={this.props.show} onHide={this.props.onClickCerrar}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Seleccionar Personaje</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
                         <Form.Group controlId="exampleForm.SelectCustom">
                             <Form.Label>Seleccione un anime</Form.Label>
-                            <Form.Control as="select" custom>
+                            <Form.Control as="select" custom onChange={this.onChangeAnime}>
                                 {animes}                             
                             </Form.Control>
                         </Form.Group>
                         <Form.Group controlId="exampleForm.SelectCustom">
                             <Form.Label>Seleccione un personaje</Form.Label>
                             <Form.Control as="select" custom>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {personajes}
                             </Form.Control>
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={this.props.onClickCerrar}>
-                        Close
+                        Cerrar
                      </Button>
-                    <Button variant="primary">
-                        Save Changes
+                    <Button variant="primary" onClick={this.props.onClickCerrar}>
+                        Seleccionar
                     </Button>
                 </Modal.Footer>
             </Modal>
