@@ -35,6 +35,12 @@ class App extends Component {
                 return response.json()
             })
             .then((animes) => {
+                for (let anime of animes) {
+                    for (let personaje of anime.Personajes) {
+                        personaje.Anime = anime;
+                    }
+                }
+
                 this.setState({ animes: animes })
             })
     }

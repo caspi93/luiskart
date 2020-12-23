@@ -10,10 +10,13 @@ class AgregarDibujo extends Component {
         this.onClickCambiarArchivo = this.onClickCambiarArchivo.bind(this);
         this.onClickSelecPersonaje = this.onClickSelecPersonaje.bind(this);
         this.onClickCerrarSelecPersonaje = this.onClickCerrarSelecPersonaje.bind(this);
+        this.onSeleccionarPersonaje = this.onSeleccionarPersonaje.bind(this);
+
         this.state = {
             archivo: null,
             imagenCargada: null,
-            showModalSelecPersonaje: false
+            showModalSelecPersonaje: false,
+            personajes: []
         }
     }
 
@@ -21,7 +24,7 @@ class AgregarDibujo extends Component {
         evento.stopPropagation();
         evento.preventDefault();
         var archivo = evento.target.files[0];
-        
+
         let reader = new FileReader();
         reader.readAsDataURL(archivo);
         reader.onload = () => {
@@ -41,16 +44,36 @@ class AgregarDibujo extends Component {
         })
     }
 
+    onSeleccionarPersonaje(personaje) {
+        this.setState((state) => {
+            return {
+                personajes: state.personajes.concat([personaje]),
+                showModalSelecPersonaje: false
+            }
+        });
+    }
+
     render() {
+        const personajes = this.state.personajes.map((personaje, i) => {
+            return <tr>
+                <th scope="row">{i + 1}</th>
+                <td>{personaje.Anime.Nombre}</td>
+                <td>{personaje.Nombre}</td>
+                <td><button className="btn btn-danger my-2 my-sm-0" title="Quitar"><FontAwesomeIcon icon="minus-circle" /></button></td>
+            </tr>
+        })
         return (
             <div>
                 <div className="row">
                     <div className="col col-md-6">
-                        <button className="btn btn-success my-2 my-sm-0" onClick={this.onClickSelecPersonaje} title="Agregar Personaje"><FontAwesomeIcon icon="plus-circle" />Agregar Personaje</button>
+                        <button className="btn btn-light my-2 my-sm-0" title="Atrás"><FontAwesomeIcon icon="arrow-circle-left" /></button>
+                        <button className="btn btn-success my-2 my-sm-0" onClick={this.onClickSelecPersonaje}>
+                            <FontAwesomeIcon icon="plus-circle" /> Agregar Personaje
+                        </button>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col col-md-6 seccion-master">
+                    <div className="col col-md-6 seccion-master text-center">
                         <table className="table table-sm table-dark">
                             <thead>
                                 <tr>
@@ -60,14 +83,10 @@ class AgregarDibujo extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td><button className="btn btn-danger my-2 my-sm-0" title="Quitar"><FontAwesomeIcon icon="minus-circle" /></button></td>
-                                </tr>
+                                {personajes}
                             </tbody>
                         </table>
+                        <button className="btn btn-success my-2 my-sm-0">Guardar</button>
                     </div>
                     <div className="col col-md-6 seccion-master">
                         <div className="card">
@@ -86,7 +105,11 @@ class AgregarDibujo extends Component {
                         </div>
                     </div>
                 </div>
-                <SeleccionarPersonaje animes={this.props.animes} show={this.state.showModalSelecPersonaje} onClickCerrar={this.onClickCerrarSelecPersonaje} />
+                <SeleccionarPersonaje
+                    animes={this.props.animes}
+                    show={this.state.showModalSelecPersonaje}
+                    onClickCerrar={this.onClickCerrarSelecPersonaje}
+                    onSeleccionar={this.onSeleccionarPersonaje} />
             </div>
         )
     }

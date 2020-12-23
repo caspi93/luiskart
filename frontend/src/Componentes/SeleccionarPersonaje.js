@@ -7,6 +7,7 @@ class SeleccionarPersonaje extends Component {
     constructor(props) {
         super(props);
         this.onChangeAnime = this.onChangeAnime.bind(this);
+        this.onClickSeleccionar = this.onClickSeleccionar.bind(this);
         this.state = {
             animeSeleccionado: null
         }
@@ -15,10 +16,15 @@ class SeleccionarPersonaje extends Component {
     onChangeAnime(evento) {
         const posicion = evento.target.value;
         const anime = this.props.animes[posicion];
-        console.log("Anime: ", anime);
         this.setState({
             animeSeleccionado: anime
         })
+    }
+
+    onClickSeleccionar() {
+        const posicion = this.selectPersonajes.value;
+        const personaje = this.state.animeSeleccionado.Personajes[posicion];
+        this.props.onSeleccionar(personaje);
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -33,11 +39,14 @@ class SeleccionarPersonaje extends Component {
     }
 
     render() {
-        const animes = this.props.animes.map((anime, i) => { return <option value={i}>{anime.Nombre}</option> });
+        const animes = this.props.animes.map((anime, i) => {
+            return <option value={i} selected={anime == this.state.animeSeleccionado}>{anime.Nombre}</option>
+        });
+
         let personajes;
         if (this.state.animeSeleccionado != null) {
             personajes = this.state.animeSeleccionado.Personajes.map((personaje, i) => {
-                return <option value={personaje.Id}>{personaje.Nombre}</option>
+                return <option value={i}>{personaje.Nombre}</option>
             });
         } else {
             personajes = []
@@ -53,12 +62,12 @@ class SeleccionarPersonaje extends Component {
                         <Form.Group controlId="exampleForm.SelectCustom">
                             <Form.Label>Seleccione un anime</Form.Label>
                             <Form.Control as="select" custom onChange={this.onChangeAnime}>
-                                {animes}                             
+                                {animes}
                             </Form.Control>
                         </Form.Group>
                         <Form.Group controlId="exampleForm.SelectCustom">
                             <Form.Label>Seleccione un personaje</Form.Label>
-                            <Form.Control as="select" custom>
+                            <Form.Control as="select" custom ref={(ref) => this.selectPersonajes = ref}>
                                 {personajes}
                             </Form.Control>
                         </Form.Group>
@@ -68,7 +77,7 @@ class SeleccionarPersonaje extends Component {
                     <Button variant="secondary" onClick={this.props.onClickCerrar}>
                         Cerrar
                      </Button>
-                    <Button variant="primary" onClick={this.props.onClickCerrar}>
+                    <Button variant="primary" onClick={this.onClickSeleccionar}>
                         Seleccionar
                     </Button>
                 </Modal.Footer>
