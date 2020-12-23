@@ -1,7 +1,6 @@
 ﻿import React, { Component } from 'react';
 
 class ElementoDibujo extends Component {
-
     constructor(props) {
         super(props);
     }

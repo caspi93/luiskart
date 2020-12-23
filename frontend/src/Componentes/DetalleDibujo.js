@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class DetalleDibujo extends Component {
     render() {
         const dibujo = this.props.dibujo;
-        console.log("Render Detalle Detalle Dibujo", dibujo.Id);
         const personajes = dibujo.Personajes.map((personaje, i) => {
             return <li key={personaje.Id} className="list-group-item"><a href="#" className="card-link">{personaje.Nombre} ({personaje.Anime.Nombre})</a></li>;
         });
