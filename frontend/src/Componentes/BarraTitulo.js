@@ -11,7 +11,7 @@ class BarraTitulo extends Component {
                         <li className="nav-item">{this.props.titulo}</li>
                     </ul>
                     <form className="form-inline">
-                        <button className="btn btn-primary my-2 my-sm-0" type="submit"><FontAwesomeIcon icon="plus"/> Nuevo</button>
+                        <button className="btn btn-primary my-2 my-sm-0" type="button" onClick={this.props.onClickNuevo}><FontAwesomeIcon icon="plus" /> Nuevo</button>
                     </form>
                 </div>
             </nav>

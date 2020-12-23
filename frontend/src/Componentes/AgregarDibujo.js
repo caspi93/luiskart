@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import imagen from '../Imagenes/Sesshomaru.png';
+import placeholder from '../Imagenes/default-placeholder.png';
 import SeleccionarPersonaje from './SeleccionarPersonaje';
 
 class AgregarDibujo extends Component {
@@ -62,11 +62,19 @@ class AgregarDibujo extends Component {
                 <td><button className="btn btn-danger my-2 my-sm-0" title="Quitar"><FontAwesomeIcon icon="minus-circle" /></button></td>
             </tr>
         })
+
+        let cargarImagen;
+        if (this.state.imagenCargada != null) {
+            cargarImagen = <img className="card-img-top" src={this.state.imagenCargada} alt="archivo del dibujo" />
+        } else {
+            cargarImagen = <img className="card-img-top" src={placeholder} alt="archivo del dibujo" />
+        }
+
         return (
             <div>
                 <div className="row">
                     <div className="col col-md-6">
-                        <button className="btn btn-light my-2 my-sm-0" title="Atrás"><FontAwesomeIcon icon="arrow-circle-left" /></button>
+                        <button className="btn btn-light my-2 my-sm-0" title="Atrás" onClick={this.props.onClickAtras} disabled={!this.props.puedeIrAtras}><FontAwesomeIcon icon="arrow-circle-left" /></button>
                         <button className="btn btn-success my-2 my-sm-0" onClick={this.onClickSelecPersonaje}>
                             <FontAwesomeIcon icon="plus-circle" /> Agregar Personaje
                         </button>
@@ -90,7 +98,7 @@ class AgregarDibujo extends Component {
                     </div>
                     <div className="col col-md-6 seccion-master">
                         <div className="card">
-                            <img className="card-img-top" src={this.state.imagenCargada} alt="archivo del dibujo" />
+                            {cargarImagen}
                             <div className="card-body text-center">
                                 <input
                                     type="file"
