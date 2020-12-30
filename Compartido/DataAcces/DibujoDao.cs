@@ -16,7 +16,8 @@ namespace Luiskart.Compartido.DataAcces {
         }
 
         public List<Dibujo> GetDibujos() {
-            return db.Dibujos.ToList();
+            var consulta = from d in db.Dibujos orderby d.fechaIngreso descending select d;
+            return consulta.ToList();
         }
 
         public List<Dibujo> GetDibujosConPersonajes() {

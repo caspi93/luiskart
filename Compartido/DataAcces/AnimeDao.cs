@@ -15,7 +15,8 @@ namespace Luiskart.Compartido.DataAcces {
         }
 
         public List<Anime> GetAnimes() {
-            return db.Animes.ToList();
+            var consulta = from a in db.Animes orderby a.Nombre select a;
+            return consulta.ToList();
         }
 
         public Anime CrearAnime(Anime anime) {
