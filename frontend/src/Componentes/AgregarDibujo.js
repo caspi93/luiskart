@@ -61,7 +61,28 @@ class AgregarDibujo extends Component {
                 <td>{personaje.Nombre}</td>
                 <td><button className="btn btn-danger my-2 my-sm-0" title="Quitar"><FontAwesomeIcon icon="minus-circle" /></button></td>
             </tr>
-        })
+        });
+
+        let numeroFilas;
+        let numeroPersonajes = personajes.length;
+
+        if (numeroPersonajes <= 5) {
+            numeroFilas = 5 - numeroPersonajes;
+        } else {
+            numeroFilas = 0;
+        }
+
+        const filasAPintar = [];
+
+        for (let i = 0; i < numeroFilas; i++) {
+            const filaAPintar = <tr>
+                    <td> --</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>;
+  
+            filasAPintar.push(filaAPintar);
+        }
 
         let cargarImagen;
         if (this.state.imagenCargada != null) {
@@ -92,6 +113,7 @@ class AgregarDibujo extends Component {
                             </thead>
                             <tbody>
                                 {personajes}
+                                {filasAPintar}
                             </tbody>
                         </table>
                         <button className="btn btn-success my-2 my-sm-0">Guardar</button>
